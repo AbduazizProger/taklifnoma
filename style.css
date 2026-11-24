@@ -1,0 +1,151 @@
+:root {
+  --bg: #f6f3ec;
+  --paper: #fbf9f4;
+  --ink: #2f3a36;
+  --muted: #6b756f;
+  --accent: #8a7a55;
+  --line: #d9d2c0;
+  --green: #3f5549;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  padding: 48px 28px 40px;
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  outline: 1px solid var(--line);
+  outline-offset: -10px;
+}
+
+.bismillah {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.ornament {
+  display: block;
+  width: 180px;
+  height: 20px;
+  margin: 18px auto;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1;
+}
+.ornament path { fill: var(--accent); }
+.ornament circle { fill: var(--accent); stroke: none; }
+.ornament.small { width: 120px; margin: 24px auto; }
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  color: var(--green);
+  line-height: 1.3;
+}
+
+h1.ayah {
+  font-family: "Amiri", "Scheherazade New", "Traditional Arabic", "Geeza Pro", "Noto Naskh Arabic", "Arial", serif;
+  font-size: 2rem;
+  letter-spacing: 0;
+  line-height: 1.9;
+}
+.ayah-ref {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.greeting {
+  margin-top: 28px;
+  color: var(--muted);
+}
+
+.text {
+  margin-top: 12px;
+  font-size: 1.1rem;
+}
+.text strong { font-weight: bold; color: var(--green); }
+
+.dua {
+  margin-top: 18px;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.details {
+  display: grid;
+  gap: 18px;
+}
+.item { display: flex; flex-direction: column; gap: 2px; }
+.label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.value {
+  font-size: 1.4rem;
+  color: var(--green);
+}
+
+.map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 12px 22px;
+  border: 1px solid var(--green);
+  color: var(--green);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+}
+.map-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.map-btn:hover, .map-btn:focus-visible {
+  background: var(--green);
+  color: var(--paper);
+  outline: none;
+}
+
+.footer {
+  margin-top: 32px;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted);
+}
+.footer strong {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.05rem;
+  color: var(--green);
+}
+
+/* gentle fade-in */
+.card > * {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.card > *.show { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card > * { opacity: 1; transform: none; transition: none; }
+}
